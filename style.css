@@ -1,0 +1,302 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+}
+
+/* =========================
+   WELCOME SCREEN
+========================= */
+
+#welcome {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            rgba(3, 15, 35, 0.45),
+            rgba(3, 15, 35, 0.65)
+        ),
+        url("https://img.pikbest.com/backgrounds/20260217/close-up-macro-view-of-a-futuristic-glowing-blue-microchip-and-circuit-board-pathways_16181353.jpg!w700wp");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    color: white;
+
+    z-index: 999;
+}
+
+/* =========================
+   WELCOME CONTENT
+========================= */
+
+.welcome-content {
+    padding: 45px 60px;
+
+    background: rgba(0, 0, 0, 0.30);
+
+    border-radius: 20px;
+
+    backdrop-filter: blur(3px);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.35);
+
+    max-width: 700px;
+}
+
+.welcome-content h1 {
+    font-size: 50px;
+
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.welcome-content p {
+    font-size: 18px;
+
+    margin-bottom: 30px;
+}
+
+/* =========================
+   WELCOME BUTTON
+========================= */
+
+.welcome-content button {
+    padding: 14px 28px;
+
+    font-size: 16px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.welcome-content button:hover {
+    background: #1d4ed8;
+
+    transform: scale(1.05);
+}
+
+/* =========================
+   GENERAL BUTTON
+========================= */
+
+button {
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+    width: 230px;
+
+    height: 100vh;
+
+    background: #1e293b;
+
+    position: fixed;
+
+    padding: 20px;
+
+    display: none;
+}
+
+.sidebar h2 {
+    color: white;
+
+    text-align: center;
+}
+
+.sidebar a {
+    display: block;
+
+    color: white;
+
+    padding: 15px;
+
+    cursor: pointer;
+
+    border-radius: 8px;
+}
+
+.sidebar a:hover {
+    background: #2563eb;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.dashboard {
+    margin-left: 280px;
+
+    padding: 30px;
+}
+
+/* =========================
+   HIDE SECTIONS
+========================= */
+
+#addPrototype,
+#categories,
+#about {
+    display: none;
+}
+
+/* =========================
+   SEARCH BAR
+========================= */
+
+#searchBar {
+    width: 400px;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    border: 1px solid #ccc;
+
+    box-sizing: border-box;
+}
+
+/* =========================
+   INPUTS
+========================= */
+
+input,
+textarea,
+select {
+    width: 400px;
+
+    padding: 12px;
+
+    margin: 8px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+
+    box-sizing: border-box;
+}
+
+textarea {
+    height: 100px;
+}
+
+/* =========================
+   CATEGORY CONTAINER
+========================= */
+
+.category-container {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+table {
+    width: 80%;
+
+    background: white;
+
+    border-collapse: collapse;
+
+    margin-top: 30px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+th {
+    background: #2563eb;
+
+    color: white;
+}
+
+td,
+th {
+    padding: 15px;
+
+    border: 1px solid #ddd;
+
+    text-align: left;
+}
+
+/* =========================
+   TEAM SECTION
+========================= */
+
+.team-container {
+    display: flex;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+}
+
+.team-card {
+    background: white;
+
+    padding: 20px;
+
+    width: 200px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.team-card img {
+    width: 120px;
+
+    height: 120px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}

@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+```
+<title>TechVault Prototype Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+```
+
+</head>
+
+<body>
+
+<!-- =========================
+     WELCOME / INTRO PAGE
+========================= -->
+
+<div id="welcome">
+
+    <div class="welcome-content">
+
+        <h1>Welcome to TECHVAULT</h1>
+
+        <p>
+            Showcasing ECE Students' Prototypes and Innovation
+        </p>
+
+        <button type="button" onclick="enterDashboard()">
+            Enter Dashboard
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =========================
+     SIDEBAR
+========================= -->
+
+<div class="sidebar">
+
+```
+<h2>
+    TechVault
+</h2>
+
+<a onclick="showHome()">
+    Home
+</a>
+
+<a onclick="showAdd()">
+    Add Prototype
+</a>
+
+<a onclick="showCategories()">
+    Categories
+</a>
+
+<a onclick="showAbout()">
+    About Us
+</a>
+```
+
+</div>
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
+<div class="dashboard">
+
+<!-- =========================
+     HOME
+========================= -->
+
+<div id="home">
+
+```
+<div class="content-card">
+
+
+    <!-- SEARCH -->
+
+    <h2>
+        Search Prototype
+    </h2>
+
+    <input
+        type="text"
+        id="searchBar"
+        placeholder="🔍 Search Prototype..."
+        oninput="searchPrototypes()"
+    >
+
+
+    <!-- SEARCH RESULTS -->
+
+    <div class="prototype-container">
+
+        <h2 id="searchResultTitle">
+
+        <p
+            id="noPrototypeMessage"
+            style="display: none;"
+        >
+
+            No prototype found.
+
+        </p>
+
+    </div>
+
+    <h1>
+        Welcome to TechVault
+    </h1>
+
+    <p>
+
+        <strong>TechVault: Showcasing ECE Students'
+        Prototypes and Innovation</strong> is a digital
+        platform created to showcase and organize
+        innovative prototypes developed by Electronics
+        Engineering students.
+
+    </p>
+
+    <p>
+
+        TechVault provides a centralized space where
+        students' projects can be documented and easily
+        explored according to their respective courses
+        and categories.
+
+    </p>
+
+    <h2>
+        What is TechVault for?
+    </h2>
+
+    <p>
+
+        TechVault is designed to preserve and present
+        the creativity, skills, and innovations of ECE
+        students. It allows users to explore information
+        about different prototypes, including their
+        descriptions, purposes, components, members,
+        schematic diagrams, and prototype pictures.
+
+    </p>
+
+    <h2>
+        How to Use TechVault
+    </h2>
+
+    <p>
+
+        Use the <strong>Search Prototype</strong> bar
+        below to quickly find a prototype. You may also
+        use the <strong>Categories</strong> section to
+        browse projects according to their course.
+
+    </p>
+
+    <p>
+
+        Teachers or authorized users may use
+        <strong>Add Prototype</strong> to register
+        a new student project.
+
+    </p>
+
+
+</div>
+```
+
+</div>
+
+<!-- =========================
+     ADD PROTOTYPE
+========================= -->
+
+<div id="addPrototype">
+
+```
+<div class="content-card">
+
+    <h1>
+        Add New Prototype
+    </h1>
+
+    <p class="section-description">
+
+        Enter the information about the prototype
+        you want to add to the TechVault system.
+
+    </p>
+
+    <form>
+
+        <label>
+            Course:
+        </label>
+
+        <br>
+
+        <select id="prototypeCourse">
+
+            <option>COMMS 1</option>
+            <option>COMMS 2</option>
+            <option>COMMS 3</option>
+            <option>COMMS 4</option>
+            <option>COMMS 5</option>
+
+            <option>ELEC 1</option>
+            <option>ELEC 2</option>
+            <option>ELEC 3</option>
+
+            <option>DIGI ELEC 1</option>
+            <option>DIGI ELEC 3</option>
+
+        </select>
+
+        <br><br>
+
+        <label>
+            Prototype Name:
+        </label>
+
+        <br>
+
+        <input
+            type="text"
+            id="prototypeName"
+            placeholder="Enter prototype name"
+        >
+
+        <br><br>
+
+        <label>
+            Description:
+        </label>
+
+        <br>
+
+        <textarea
+            id="prototypeDescription"
+            placeholder="Describe the prototype"
+        ></textarea>
+
+        <br><br>
+
+        <label>
+            Purpose:
+        </label>
+
+        <br>
+
+        <textarea
+            id="prototypePurpose"
+            placeholder="What is the purpose of this prototype?"
+        ></textarea>
+
+        <br><br>
+
+        <label>
+            Components:
+        </label>
+
+        <br>
+
+        <textarea
+            id="prototypeComponents"
+            placeholder="List the components used"
+        ></textarea>
+
+        <br><br>
+
+        <label>
+            Group Members:
+        </label>
+
+        <br>
+
+        <textarea
+            id="prototypeMembers"
+            placeholder="Enter the names of the group members"
+        ></textarea>
+
+        <br><br>
+
+        <label>
+            Schematic Diagram:
+        </label>
+
+        <br>
+
+        <input
+            type="file"
+            id="schematic"
+        >
+
+        <br><br>
+
+        <label>
+            Prototype Pictures:
+        </label>
+
+        <br>
+
+        <input
+            type="file"
+            id="prototypePictures"
+            multiple
+        >
+
+        <br><br>
+
+        <button type="submit">
+            Save Prototype
+        </button>
+
+    </form>
+
+</div>
+```
+
+</div>
+
+<!-- =========================
+     CATEGORIES
+========================= -->
+
+<div id="categories">
+
+```
+<div class="content-card">
+
+    <h1>
+        Categories
+    </h1>
+
+    <p>
+
+        Select a category to view the prototypes
+        registered under that course.
+
+    </p>
+
+    <div class="category-container">
+
+        <button onclick="showCategory('COMMS 1')">
+            COMMS 1
+        </button>
+
+        <button onclick="showCategory('COMMS 2')">
+            COMMS 2
+        </button>
+
+        <button onclick="showCategory('COMMS 3')">
+            COMMS 3
+        </button>
+
+        <button onclick="showCategory('COMMS 4')">
+            COMMS 4
+        </button>
+
+        <button onclick="showCategory('COMMS 5')">
+            COMMS 5
+        </button>
+
+        <button onclick="showCategory('ELEC 1')">
+            ELEC 1
+        </button>
+
+        <button onclick="showCategory('ELEC 2')">
+            ELEC 2
+        </button>
+
+        <button onclick="showCategory('ELEC 3')">
+            ELEC 3
+        </button>
+
+        <button onclick="showCategory('DIGI ELEC 1')">
+            DIGI ELEC 1
+        </button>
+
+        <button onclick="showCategory('DIGI ELEC 3')">
+            DIGI ELEC 3
+        </button>
+
+    </div>
+
+    <h2 id="categoryTitle">
+        Select Category
+    </h2>
+
+    <table id="categoryTable">
+
+        <thead>
+
+            <tr>
+
+                <th>
+                    Prototype Name
+                </th>
+
+                <th>
+                    Action
+                </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody id="categoryTableBody">
+
+        </tbody>
+
+    </table>
+
+    <p
+        id="noCategoryPrototype"
+        style="display: none;"
+    >
+
+        No prototypes available in this category.
+
+    </p>
+
+</div>
+```
+
+</div>
+
+<!-- =========================
+     ABOUT US
+========================= -->
+
+<div id="about">
+
+```
+<div class="content-card about-card">
+
+    <h1>
+        About TechVault
+    </h1>
+
+    <p>
+
+        <strong>TechVault: Showcasing ECE Students'
+        Prototypes and Innovation</strong> is a digital
+        platform created to showcase, organize, and
+        document innovative prototypes developed by
+        Electronics Engineering students.
+
+    </p>
+
+    <p>
+
+        The platform provides a centralized space where
+        ECE student projects can be presented according
+        to their respective courses. Users can explore
+        project descriptions, purposes, components,
+        members, schematic diagrams, and prototype
+        pictures.
+
+    </p>
+
+
+    <h2>
+        About Our Group
+    </h2>
+
+    <p>
+
+        We are a group of Electronics Engineering students
+        who developed TechVault to promote creativity,
+        innovation, collaboration, and technological
+        development among ECE students.
+
+    </p>
+
+    <p>
+
+        Through this platform, we aim to make student
+        prototypes easier to organize, access, and
+        explore.
+
+    </p>
+
+
+    <h2>
+        Our Team
+    </h2>
+
+    <div class="team-container">
+
+        <div class="team-card">
+
+            <img src="member1.jpg" alt="Member 1">
+
+            <h3>
+                Member 1
+            </h3>
+
+            <p>
+                Electronics Engineering Student
+            </p>
+
+            <p>
+                📧 member1@email.com
+            </p>
+
+        </div>
+
+
+        <div class="team-card">
+
+            <img src="member2.jpg" alt="Member 2">
+
+            <h3>
+                Member 2
+            </h3>
+
+            <p>
+                Electronics Engineering Student
+            </p>
+
+            <p>
+                📧 member2@email.com
+            </p>
+
+        </div>
+
+
+        <div class="team-card">
+
+            <img src="member3.jpg" alt="Member 3">
+
+            <h3>
+                Member 3
+            </h3>
+
+            <p>
+                Electronics Engineering Student
+            </p>
+
+            <p>
+                📧 member3@email.com
+            </p>
+
+        </div>
+
+
+        <div class="team-card">
+
+            <img src="member4.jpg" alt="Member 4">
+
+            <h3>
+                Member 4
+            </h3>
+
+            <p>
+                Electronics Engineering Student
+            </p>
+
+            <p>
+                📧 member4@email.com
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- CONTACT US -->
+
+    <div class="contact-section">
+
+        <h2>
+            Contact Us
+        </h2>
+
+        <p>
+
+            For questions, suggestions, technical
+            concerns, or emergency assistance related
+            to TechVault, please contact our team
+            using the information below.
+
+        </p>
+
+        <div class="contact-box">
+
+            <p>
+
+                📧 <strong>Email:</strong>
+
+                <a href="mailto:techvault@email.com">
+                    techvault@email.com
+                </a>
+
+            </p>
+
+            <p>
+
+                📞 <strong>Contact Number:</strong>
+
+                09XX-XXX-XXXX
+
+            </p>
+
+            <p>
+
+                🚨 <strong>Emergency / Urgent Concerns:</strong>
+
+                Please contact the TechVault team
+                through the email address or phone
+                number provided above.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+```
+
+</div>
+
+</div>
+
+<!-- EXTERNAL JAVASCRIPT -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
